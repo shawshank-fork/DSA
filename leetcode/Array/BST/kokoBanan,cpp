@@ -1,0 +1,41 @@
+
+
+#include<iostream>
+using namespace std;
+#include<vector>
+#include<climits>
+
+class Solution {
+public:
+    int maximum(vector<int>& piles) {
+        int maxi = INT_MIN;
+        int n = piles.size();
+        for(int i = 0; i<n; i++) {
+            maxi = max(maxi, piles[i]);
+        }
+        return maxi;
+    }
+
+    long long totalHours(vector<int>& piles, int hourly) {
+    long long totalH = 0;
+    for (int pile : piles) {
+        totalH += (pile + hourly - 1) / hourly; 
+    }
+    return totalH;
+}
+
+int minEatingSpeed(vector<int>& piles, int h) {
+    int s = 1, e = maximum(piles);
+    while (s <= e) {
+        int mid = s + (e - s) / 2;
+        long long totalH = totalHours(piles, mid);
+            if (totalH <= h) {
+                e = mid - 1;
+            } else {
+                s = mid + 1;
+            }
+        }
+        return s;
+    }
+
+};

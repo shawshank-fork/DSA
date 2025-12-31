@@ -1,0 +1,90 @@
+Here's the background information for your task
+Accenture is a Global Fortune 500 company that provides consulting and processing services across many different domains. Software Engineers at Accenture may work on a vast range of programming languages and frameworks. Recently, a company has brought on Accenture to help with the development of its e-commerce website written in Java using the Spring Boot framework. The first task they need help with is searching for products.
+
+One of the UX designers at Accenture has already implemented the new search capability in the UI. It’s your responsibility to implement the search capability in our backend Java app. The new class will need to meet the following requirements:
+
+Expose an HTTP GET request on the path /api/products/search
+The request should take a single parameter named “query” which will be the text that was entered in the search bar
+The request will return a Collection of ProductItem which are the matching products for the search.
+
+
+
+
+Here is your task
+Spring Boot is a framework designed to make writing Java services as easy as can be. You’ll need to implement a new controller to handle searching.  
+
+Download and unzip the mock-company-webapp codebase. Open the application in your favorite IDE with Gradle support
+Follow the README.md instructions for setting up the development environment
+Implement the “search” method of the class SearchController, the relevant code is outlined with a TODO comment
+The controller should use the “productItemRepository” to interface with the product database
+By using Test Driven Development, we've already written the specification for how the controller should work. It's your responsibility to review the tests and implement the controller to the spec.
+
+When you're ready upload your SearchController Java file below. You'll see an example answer on the next step, but we encourage you to give it a go first!
+
+
+
+
+
+A company has brought on Accenture to take over the development of their e-commerce website. You’ve recently implemented a new search API for them and now we’ve identified some code in the ReportController class that seems to be doing similar product searching. You will need to refactor the SearchController logic into a new SearchService class that can be used in the SearchController as well as in the ReportController. Your changes must meet the following requirements:
+
+Logic moved from SearchController to SearchService
+SearchController and ReportController both updated to use the SearchService
+All unit tests pass
+
+
+
+Here is your task
+In Spring, controllers are used to provide functionality over the web. Services, on the other hand, provide functionality that can be reused anywhere throughout an application. In this case, the controllers will be refactored to use a shared service. In this task you’ll need to do the following:
+
+If the first task was completed, feel free to continue to use that codebase to complete this task. Otherwise, download and unzip the mock-company-webapp codebase. Open the application in your favorite IDE with Gradle support
+Follow the README.md instructions for setting up the development environment
+Create the new SearchService class in the “services” package. All of the search logic from the SearchController should be moved into a function in this class for reusability. The relevant code is outlined with a TODO comment.
+Using @Autowired, inject the SearchService into the SearchController and ReportController.
+Refactor both controller classes to use the service by rewriting their functions to use the new service.
+Ensure unit tests all pass
+When you're done, you should have three files:
+
+SearchController Java File
+SearchService Java File
+ReportController Java File
+Zip or compress these files into one folder and upload them below. We'll show you an example answer on the next step! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Here is your task
+Continuous Integration is the practice of automating the integration of code changes from multiple contributors into a single software project. It's a primary DevOps best practice, allowing developers to frequently merge code changes into a central repository where building and test runs can occur. In this task, we’re going to be using the most popular Continuous Integration tool, Jenkins. We’ll be creating a Jenkinsfile that will build and test the application on all branches of the repository.
+
+The following requirements will need to be met for this task:
+
+GitHub account created, Git CLI setup, mock-company-webapp repository forked and cloned
+Jenkinsfile defined with stages setting it up to run on commit to any branch in the repository
+Continuous Integration server runs build/test and succeeds
+Change made to code that breaks test. Continuous Integration server runs build/test and fails
+ 
+
+Here's what you need to do
+
+Jenkins is the most popular Continuous Integration server in the world. In this task, you will be defining your build steps using the Jenkinsfile format. You will run these using a Jenkins Cloud Instance for GitHub or simulating Jenkins using the Jenkinsfile Runner Action in a GitHub Workflow. 
+
+Follow these steps to complete the task: 
+
+Create an account with GitHub and fork the mock-company-webapp repository
+Setup the Git CLI on your workstation and “clone” the repository you forked to your workstation
+Install the Pipelines application from the GitHub marketplace to use Jenkins directly or use the Simulated Jenkins for GitHub link to add a .github/workflows/workflow.yml to the repository.
+Add the following stages to the Jenkinsfile, the relevant code is outlined with a TODO comment.
+Build: ./gradlew assemble
+Test: ./gradlew test
+Continue to tweak the Jenkinsfile until the build is successful
+Change the SearchService to always return Collections.emptyList() in order to break the tests.
+Commit the change and validate the Continuous Integration build fails. This proves that we’ve properly set up Continuous Integration guard rails, that will catch failing tests each time a commit is made by a developer!
+When you're finished, upload your Jenkinsfile below - or provide a link to your fork of the repository in a code file document (extension has to be a code file). We'll show you an example answer on the next step!
